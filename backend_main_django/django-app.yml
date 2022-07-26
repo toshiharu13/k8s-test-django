@@ -1,0 +1,9 @@
+apiVersion : apps/v1
+kind: Pod
+metadata:
+  name: django-kub
+spec:
+  containers:
+    - name: k8s-test--django
+      image: django_app:latest
+      imagePullPolicy: Never
