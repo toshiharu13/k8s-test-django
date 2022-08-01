@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
     - name: k8s-test--django
-      image: django_app:latest
+      image: django_app:ver2
       imagePullPolicy: Never
