@@ -5,3 +5,4 @@ metadata:
 data:
   SECRET_KEY: зачемтоптатьмоюлюбовьеёитакпочтинестало
   DATABASE_URL: postgres://test_k8s:OwOtBep9Frut@172.28.0.2:5432/test_k8s
+  ALLOWED_HOSTS: ['*']
