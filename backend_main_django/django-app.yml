@@ -17,9 +17,9 @@ spec:
       containers:
         - name : k8s-test-django
           image: django-app:v1
-          env:
-            - name: ALLOWED_HOSTS
-              value: 192.168.59.100
+          #env:
+            #- name: ALLOWED_HOSTS
+              #value: 192.168.59.101
           envFrom:
             - configMapRef:
                 name: config-test-app
@@ -40,5 +40,5 @@ spec:
     - name       : app-listener
       protocol   : TCP
       port       : 80
-      #targetPort : 32211
+      nodePort : 30987
   type: NodePort
