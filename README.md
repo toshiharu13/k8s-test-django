@@ -32,3 +32,14 @@ $ docker-compose run web ./manage.py createsuperuser
 `ALLOWED_HOSTS` -- настройка Django со списком разрешённых адресов. Если запрос прилетит на другой адрес, то сайт ответит ошибкой 400. Можно перечислить несколько адресов через запятую, например `127.0.0.1,192.168.0.1,site.test`. [Документация Django](https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts).
 
 `DATABASE_URL` -- адрес для подключения к базе данных PostgreSQL. Другие СУБД сайт не поддерживает. [Формат записи](https://github.com/jacobian/dj-database-url#url-schema).
+
+## Запуск проекта на K8S
+Считается, что БД разварачивать в облаке не 'docker way', по этому разварачиваем в облаке с K8S только web сервер
+ - [устанвливаем kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/)
+ - Собираем образ для K8S из на основе Dockerfile (подробности в вашем облаке)
+ - Создаем [configmap](https://humanitec.com/blog/handling-environment-variables-with-kubernetes) и заполняем его данными переменного окружения(см. выше) 
+ - При неоходимости, адаптируем настройки манифеста под собственные задачи
+ - запускаем [deploy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+```bash
+   kubectl  apply -f backend_main_django/django-app.yml 
+```
