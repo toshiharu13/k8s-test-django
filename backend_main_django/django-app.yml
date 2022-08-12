@@ -31,11 +31,11 @@ metadata:
     env  : prod
     owner: Elf
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     project: k8s-test-app
   ports:
     - name       : app-listener
       protocol   : TCP
       port       : 80
-      nodePort : 30987
+      targetPort : 80
