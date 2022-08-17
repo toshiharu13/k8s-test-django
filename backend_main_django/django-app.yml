@@ -31,7 +31,7 @@ metadata:
     env  : prod
     owner: Elf
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     project: k8s-test-app
   ports:

@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: django-ingress
+spec:
+  rules:
+      host: star-burger.test
+      http:
+      - path:
+          backend:
+          service:
+            name: django-app-dep
+            port:
+              number: 80
