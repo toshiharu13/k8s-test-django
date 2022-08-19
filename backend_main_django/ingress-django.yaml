@@ -1,14 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: django-ingress
+  name: ingress-django
 spec:
+  ingressClassName: nginx-example
   rules:
   - host: star-burger.test
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: "/"
+        pathType: Prefix
         backend:
           service:
             name: django-service
