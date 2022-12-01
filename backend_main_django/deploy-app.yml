@@ -18,10 +18,10 @@ spec:
         - name : k8s-test-django
           image: django-app:v1
           envFrom:
-            - configMapRef:
-                name: config-test-app
+          - configMapRef:
+              name: config-test-app
           ports:
-            - containerPort: 80
+          - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
