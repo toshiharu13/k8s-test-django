@@ -37,9 +37,17 @@ $ docker-compose run web ./manage.py createsuperuser
 Считается, что БД разварачивать в облаке не 'docker way', по этому разварачиваем в облаке с K8S только web сервер
  - [устанвливаем kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/)
  - Собираем образ для K8S из на основе Dockerfile (подробности в вашем облаке)
- - Создаем [configmap](https://humanitec.com/blog/handling-environment-variables-with-kubernetes) и заполняем его данными переменного окружения(см. выше) 
- - При неоходимости, адаптируем настройки манифеста под собственные задачи
- - запускаем [deploy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+ - Создаем [configmap](https://humanitec.com/blog/handling-environment-variables-with-kubernetes) и заполняем его данными переменного окружения(см. выше)
 ```bash
+   kubectl  create configmap config-test-app --from-env-file=backend_main_django/env-configmap
+```
+ - При неоходимости, адаптируем настройки манифеста под собственные задачи
+ - Запускаем [deploy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+ ```bash
    kubectl  apply -f backend_main_django/django-app.yml 
 ```
+- Запускаем [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+ ```bash
+   kubectl  apply -f backend_main_django/ingress-app.yml 
+```
+ - Перейдите по адресу [http://star-burger.test/](http://star-burger.test/)

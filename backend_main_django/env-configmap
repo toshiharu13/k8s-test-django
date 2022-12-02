@@ -1,4 +1,4 @@
 DATABASE_URL=postgres://test_k8s:OwOtBep9Frut@172.18.0.2:5432/test_k8s
 ALLOWED_HOSTS=star-burger.test
 SECRET_KEY=зачемтоптатьмоюлюбовьеёитакпочтинестало
-DEBUG=True
+DEBUG=False
