@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: ingress-django
 spec:
-  ingressClassName: nginx-example
   rules:
   - host: star-burger.test
     http:
