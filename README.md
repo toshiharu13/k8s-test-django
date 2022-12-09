@@ -51,3 +51,12 @@ $ docker-compose run web ./manage.py createsuperuser
    kubectl  apply -f backend_main_django/ingress-app.yml 
 ```
  - Перейдите по адресу [http://star-burger.test/](http://star-burger.test/)
+
+ - Запуск чистки сессий по рарасписанию
+```bash
+ kubectl  apply -f backend_main_django/clearsessions-cronjob.yaml
+ ```
+ - Запуск чистки сессий вручную
+```bash
+  kubectl create job clearsessions-job-man  --from=cronjob/clearsessions-job
+ ```
