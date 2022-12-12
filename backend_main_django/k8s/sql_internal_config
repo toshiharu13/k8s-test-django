@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sql-internal-config
+  namespace: default
+data:
+  DATABASE_URL: postgres://postgres:PGPASSWORD="$POSTGRES_PASSWORD"@my-psql-postgresql-0:5432/test_k8s
+  SECRET_KEY: зачемтоптатьмоюлюбовьеёитакпочтинестало
+  DEBUG: 'True'
+  ALLOWED_HOSTS: star-burger.test
