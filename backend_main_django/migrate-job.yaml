@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: k8s-test-django-migrate
+        image: django-app:v1
+        command: ['python', 'manage.py', 'migrate', '--noinput']
+        envFrom:
+          - configMapRef:
+              name: config-test-app
+      restartPolicy: Never
+  backoffLimit: 4
