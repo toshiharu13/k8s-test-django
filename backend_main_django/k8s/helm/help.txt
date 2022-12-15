@@ -15,3 +15,5 @@ To connect to your database run the following command:
 To get the password for "postgres" run:
 
     export POSTGRES_PASSWORD=$(kubectl get secret --namespace default my-psql-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
+
+au5uouKw0K
