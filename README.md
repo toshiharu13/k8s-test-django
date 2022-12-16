@@ -60,3 +60,10 @@ $ docker-compose run web ./manage.py createsuperuser
 ```bash
   kubectl create job clearsessions-job-man  --from=cronjob/clearsessions-job
  ```
+## Если нужно развернуть БД в K8S:
+ - Установите [helm](https://helm.sh/)
+ - Скачать [чарт Postgress](https://artifacthub.io/packages/helm/bitnami/postgresql)
+ - Изменить настройки configmap под новый pod
+ - Подсказка - в файле backend_main_django/k8s/helm/help.txt примеры команд для скачивания и установки чарта postgres
+
+The code is written for educational purposes in development courses [DevMan](https://dvmn.org).
